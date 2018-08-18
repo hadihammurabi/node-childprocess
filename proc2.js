@@ -1,18 +1,16 @@
-process.title = process.argv[2];
+title = process.argv[2];
+process.title = `[${title}]`;
 
 const { execFile } = require('child_process');
 
 const p = [];
 
-for(let i = 3; i >= 1; i--) {
-  for (let j = 1; j <= 3; j++) {
-    for (let k = 1; j <= 3; k++) {
-      p.push(`${i}0${j}`);
-    }
-  }
+for (let i = 10; i <= 30; i+=10) {
+  p.push(parseInt(title) + i);
 }
 
 p.forEach(i => {
-  execFile('node', ['proc2', i]);
+  execFile('node', ['proc3', i]);
 });
 
+setTimeout(()=>'', 300000);
